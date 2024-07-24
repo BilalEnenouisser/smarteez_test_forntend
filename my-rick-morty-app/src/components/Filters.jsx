@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Filters({ applyFilters }) {
   const [status, setStatus] = useState('');
   const [species, setSpecies] = useState('');
   const [gender, setGender] = useState('');
+  const navigate = useNavigate(); 
 
   const handleApplyFilters = () => {
     applyFilters({ status, species, gender });
+  };
+
+  const goToFavorites = () => {
+    navigate('/favorites'); 
   };
 
   return (
@@ -21,7 +27,7 @@ function Filters({ applyFilters }) {
         <option value="">All Species</option>
         <option value="human">Human</option>
         <option value="alien">Alien</option>
-        {/* Add more species options as needed */}
+        
       </select>
       <select value={gender} onChange={(e) => setGender(e.target.value)}>
         <option value="">All Genders</option>
@@ -31,7 +37,7 @@ function Filters({ applyFilters }) {
         <option value="unknown">Unknown</option>
       </select>
       <button onClick={handleApplyFilters}>Apply Filters</button>
-     
+      <button onClick={goToFavorites}>Go to Favorites</button> 
     </div>
   );
 }
