@@ -31,6 +31,7 @@ function Filters({ applyFilters }) {
         <option value="unknown">Unknown</option>
       </select>
       <button onClick={handleApplyFilters}>Apply Filters</button>
+     
     </div>
   );
 }
